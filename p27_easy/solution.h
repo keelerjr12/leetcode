@@ -8,13 +8,15 @@ class Solution
     {
         auto curr = 0;
 
-        for (auto ptr = curr; ptr < nums.size(); ++ptr) {
-            if (nums[ptr] != val) {
+        for (auto ptr = curr; ptr < nums.size(); ++ptr)
+        {
+            if (nums[ptr] != val)
+            {
                 nums[curr] = nums[ptr];
                 ++curr;
             }
         }
-        
+
         return curr;
     }
 };

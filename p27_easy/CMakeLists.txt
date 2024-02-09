@@ -14,14 +14,13 @@ set(MSVC_LIKE_CXX "$<COMPILE_LANG_AND_ID:CXX,MSVC>")
 
 #set(CMAKE_CXX_CLANG_TIDY clang-tidy -checks=-*,bugprone-*,cert-*,clang-analyzer-*,cppcoreguidelines-*,-cppcoreguidelines-pro-type-reinterpret-cast,hicpp-*,modernize-*,-modernize-use-trailing-return-type,performance-*,readability-*)
 
-#add_library(${TARGET_NAME} STATIC "solution.h")
 add_library(${TARGET_NAME} INTERFACE)
 target_include_directories(${TARGET_NAME} INTERFACE .)
 
-#target_compile_options(${TARGET_NAME} PRIVATE
-#  "$<${GCC_LIKE_CXX}:-g;-Wall;-Werror;-pedantic;-Wextra;-Wshadow;-Wsign-conversion;-Wunused>"
-#  "$<${MSVC_LIKE_CXX}:-W3>"
-#)
+target_compile_options(${TARGET_NAME} INTERFACE
+  "$<${GCC_LIKE_CXX}:-g;-Wall;-Werror;-pedantic;-Wextra;-Wshadow;-Wsign-conversion;-Wunused>"
+  "$<${MSVC_LIKE_CXX}:-W3>"
+)
 
 if (BUILD_TESTS)
   message(STATUS "Testing is on")
